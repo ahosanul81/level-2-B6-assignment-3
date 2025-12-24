@@ -9,9 +9,15 @@ Requirement
 
 Retrieve booking information along with:
 
--Booking id
--Customer name
--Vehicle details (name, type, model, registration number, price, status)
+- **Booking ID**
+- **Customer Name**
+- **Vehicle Details**
+  - Name
+  - Type
+  - Model
+  - Registration Number
+  - Rental Price per Day
+  - Availability Status
 
 ----------Solution--------------------
 
@@ -35,7 +41,7 @@ inner join vehicles on vehicles.id = bookings.vehicle_id;
 
 Requirement
 
--Find all vehicles that have never been booked.
+-**Find all vehicles that have never been booked.**
 
 -----------------Solution------------------------
 
@@ -51,14 +57,14 @@ select
   rental_price_per_day,
   availability_status
 from vehicles
-where availability_status  <> 'rented'`
+where availability_status  <> 'rented'
 ```
 
 # Query 3: WHERE
 
 Requirement
 
-Retrieve all available vehicles of a specific type (example: car).
+- Retrieve all available vehicles of a specific type (example: car).
 
 -------------------Solution--------------------
 
@@ -72,16 +78,16 @@ select
   rental_price_per_day,
   availability_status
 from vehicles
-where availability_status = 'available' and vehicle_type = 'car';`
+where availability_status = 'available' and vehicle_type = 'car';
 ```
 
-We use the WHERE clause with multiple conditions.
+- We use the WHERE clause with multiple conditions.
 
 # Query 4: GROUP BY and HAVING
 
 Requirement
 
-Find the total number of bookings for each vehicle and display only those vehicles that have more than 2 bookings.
+- **Find the total number of bookings for each vehicle and display only those vehicles that have more than 2 bookings.**
 
 ------------------Solution---------------------
 
@@ -91,7 +97,7 @@ select
 from bookings
 join vehicles on vehicles.id = bookings.vehicle_id
 group by vehicles.id
-having count(bookings.vehicle_id) > 2`
+having count(bookings.vehicle_id) > 2
 ```
 
 We use:
