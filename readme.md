@@ -29,6 +29,7 @@ select
   vehicles.availability_status as status
 from bookings inner join users on users.id = bookings.user_id
 inner join vehicles on vehicles.id = bookings.vehicle_id;
+```
 
 # Query 2: EXISTS
 
@@ -90,4 +91,7 @@ We use:
 GROUP BY to group bookings per vehicle
 
 HAVING to filter grouped results
+
+```
+
 ```
