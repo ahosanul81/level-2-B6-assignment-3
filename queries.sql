@@ -12,6 +12,7 @@ CREATE TABLE users (
     updatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
+
 CREATE TABLE vehicles (
     id SERIAL PRIMARY KEY,
     user_id int references users(id),
@@ -218,3 +219,4 @@ select
   join vehicles on vehicles.id = bookings.vehicle_id 
   group by vehicles.id
 having count(bookings.vehicle_id) > 2
+
