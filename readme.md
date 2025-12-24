@@ -41,7 +41,8 @@ Requirement
 
 We use NOT EXISTS to check vehicles that do not appear in the bookings table.
 
-`select
+```sql
+select
   id as vehicle_id,
   vehicle_name,
   vehicle_type,
@@ -51,6 +52,7 @@ We use NOT EXISTS to check vehicles that do not appear in the bookings table.
   availability_status
 from vehicles
 where availability_status  <> 'rented'`
+```
 
 # Query 3: WHERE
 
@@ -59,7 +61,9 @@ Requirement
 Retrieve all available vehicles of a specific type (example: car).
 
 -------------------Solution--------------------
-`select
+
+```sql
+select
   id as vehicle_id,
   vehicle_name,
   vehicle_type,
@@ -69,6 +73,7 @@ Retrieve all available vehicles of a specific type (example: car).
   availability_status
 from vehicles
 where availability_status = 'available' and vehicle_type = 'car';`
+```
 
 We use the WHERE clause with multiple conditions.
 
@@ -79,19 +84,18 @@ Requirement
 Find the total number of bookings for each vehicle and display only those vehicles that have more than 2 bookings.
 
 ------------------Solution---------------------
-`select
+
+```sql
+select
   vehicles.vehicle_name, count(bookings.vehicle_id) as total_booking
 from bookings
 join vehicles on vehicles.id = bookings.vehicle_id
 group by vehicles.id
 having count(bookings.vehicle_id) > 2`
+```
 
 We use:
 
 GROUP BY to group bookings per vehicle
 
 HAVING to filter grouped results
-
-```
-
-```
